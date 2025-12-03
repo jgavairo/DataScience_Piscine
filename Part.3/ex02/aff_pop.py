@@ -44,35 +44,43 @@ def aff_pop(data: pandas.DataFrame):
         print("Error: Switzerland not found in dataset")
         return None
 
-    all_years = france_data.columns[1:].astype(int)
-    mask = all_years <= 2050
-    years = all_years[mask]
-    fr_values = france_data.iloc[0, 1:].values[mask]
-    fr_values = [convert_to_int(values) for values in fr_values]
-    sw_values = switzerland_data.iloc[0, 1:].values[mask]
-    sw_values = [convert_to_int(values) for values in sw_values]
+    try:
+        all_years = france_data.columns[1:].astype(int)
+        mask = all_years <= 2050
+        years = all_years[mask]
+        fr_values = france_data.iloc[0, 1:].values[mask]
+        fr_values = [convert_to_int(values) for values in fr_values]
+        sw_values = switzerland_data.iloc[0, 1:].values[mask]
+        sw_values = [convert_to_int(values) for values in sw_values]
 
-    fr_values = [v / 1_000_000 for v in fr_values]
-    sw_values = [v / 1_000_000 for v in sw_values]
+        fr_values = [v / 1_000_000 for v in fr_values]
+        sw_values = [v / 1_000_000 for v in sw_values]
 
-    plt.plot(years, fr_values, color="blue", label="France")
-    plt.plot(years, sw_values, color="red", label="Switzerland")
-    plt.title("Population projection to 2050")
-    plt.xlabel("Year")
-    plt.ylabel("Population (in millions)")
-    plt.legend()
-    plt.show()
+        plt.plot(years, fr_values, color="blue", label="France")
+        plt.plot(years, sw_values, color="red", label="Switzerland")
+        plt.title("Population projection to 2050")
+        plt.xlabel("Year")
+        plt.ylabel("Population (in millions)")
+        plt.legend()
+        plt.show()
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
 
 def main():
     """Main function to display the population\
          total between 1800 and 2050 for France and Switzerland.
     """
-    data = load("population_total.csv")
-    if data is None:
-        print("Error: Could not load dataset")
+    try:
+        data = load("population_total.csv")
+        if data is None:
+            print("Error: Could not load dataset")
+            return None
+        aff_pop(data)
+    except Exception as e:
+        print(f"Error: {e}")
         return None
-    aff_pop(data)
 
 
 if __name__ == "__main__":

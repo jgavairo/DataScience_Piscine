@@ -29,13 +29,17 @@ def projection_life(data: pandas.DataFrame, data2: pandas.DataFrame):
 def main():
     """Main function to projection the life expectancy for France.
     """
-    data_life_expectancy = load("life_expectancy_years.csv")
-    data_inflation = \
-        load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
-    if data_life_expectancy is None or data_inflation is None:
-        print("Error: Could not load dataset")
+    try:
+        data_life_expectancy = load("life_expectancy_years.csv")
+        data_inflation = \
+            load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+        if data_life_expectancy is None or data_inflation is None:
+            print("Error: Could not load dataset")
+            return None
+        projection_life(data_life_expectancy, data_inflation)
+    except Exception as e:
+        print(f"Error: {e}")
         return None
-    projection_life(data_life_expectancy, data_inflation)
 
 
 if __name__ == "__main__":
