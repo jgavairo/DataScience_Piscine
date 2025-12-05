@@ -9,7 +9,6 @@ Cette partie introduit l'analyse de données avec pandas et la visualisation ave
 - **ex02** - `aff_pop.py` : Visualisation de l'évolution de la population (France et Suisse)
 - **ex03** - `projection_life.py` : Analyse de corrélation entre espérance de vie et PIB par habitant
 
-## Prérequis
+[Back](../readme.md)
 
-Voir `requirement.txt` pour les dépendances nécessaires.
 

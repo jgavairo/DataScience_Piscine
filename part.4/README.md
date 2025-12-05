@@ -9,7 +9,6 @@ Cette partie couvre les fonctionnalités avancées de Python : décorateurs, clo
 - **ex02** - `callLimit.py` : Décorateur pour limiter le nombre d'appels d'une fonction
 - **ex03** - `new_student.py` : Classe avec génération automatique d'identifiants uniques
 
-## Prérequis
+[Back](../readme.md)
 
-Aucune dépendance externe requise.
 

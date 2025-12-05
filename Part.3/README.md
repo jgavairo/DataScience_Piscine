@@ -10,7 +10,6 @@ Cette partie explore les concepts avancés de la programmation orientée objet e
 - **ex03** - `ft_calculator.py` : Surcharge d'opérateurs (+, -, *, /) pour une classe calculatrice
 - **ex04** - `ft_calculator.py` : Opérations vectorielles avancées
 
-## Prérequis
+[Back](../readme.md)
 
-Aucune dépendance externe requise.
 
